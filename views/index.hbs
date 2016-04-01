@@ -1,182 +1,44 @@
-<h1>Programming Language Prevelance</h1>
-<button class="all">ALL</button>
-<button class="students">Students</button>
-<button class="fullstack">Full Stack</button>
-<button class="frontend">Front End</button>
-<button class="backend">Back End</button>
-<button class="mobile">Mobile</button>
-<button class="math">Math and Data</button>
-<div class="container"></div>
+<h1>Language Visualizer</h1>
+<div class="container">
+  <button class="signup">Signup</button>
+  <button class="login">Login</button>
+  <div class="signupdisplay">
+    <form action="/sigunup" method="post">
+      <label for="username">Username</label><br>
+      <input class="formputs" type="text" name="username"><br>
+      <label for="password">Password</label><br>
+      <input class="formputs password" type="text" name="password"><br>
+      <input type="submit" value="Sign Up">
+    </form>
+  </div>
+  <div class="logindisplay">
+    <form action="/login" method="post">
+      <label for="username">Username</label><br>
+      <input class="formputs" type="text" name="username"><br>
+      <label for="password">Password</label><br>
+      <input class="formputs password" type="text" name="password"><br>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</div>
 
-<script>
-$(function(){
-  $('button').on('click', function(){
-    if($("svg").length) {
-      $('.container').empty();
-        var thisData = "/json/"+$(this).attr('class')+".json";
-        function getRandomColor() {
-              var letters = '0123456789ABCDEF'.split('');
-              var color = '#';
-              for (var i = 0; i < 6; i++ ) {
-                  color += letters[Math.floor(Math.random() * 16)];
-              }
-              return ""+color;
-          }
-        console.log(getRandomColor());
-        var colorArray = [getRandomColor(),getRandomColor(),getRandomColor(),getRandomColor(),getRandomColor(),getRandomColor()];
+<script type="text/javascript">
 
-        var diameter = $(window).width()*0.6,
-            format = d3.format(",d"),
-            color =  d3.scale.ordinal()
-          .domain([1,100])
-          .range(colorArray);
-
-        var bubble = d3.layout.pack()
-            .sort(null)
-            .size([diameter, diameter])
-            .padding(1);
-
-        var svg = d3.select(".container").append("svg")
-            .attr("width", diameter)
-            .attr("height", diameter)
-            .attr("class", "bubble");
-
-        d3.json(thisData, function(error, root) {
-          if (error) throw error;
-
-          var node = svg.selectAll(".node")
-              .data(bubble.nodes(classes(root))
-              .filter(function(d) { return !d.children; }))
-              .enter().append("g")
-              .attr("class", "node")
-              .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-
-          node.append("title")
-              .text(function(d) { return d.className + ": " + format(d.value); });
-
-          node.append("circle")
-              .attr("r", function(d) { return d.r; })
-              .style("fill", function(d) { return color(d.packageName); });
-
-          if(thisData === "/json/all.json"){
-            node.append("text")
-                .attr('class', "alltext")
-                .attr("dy", ".3em")
-                .style("text-anchor", "middle")
-                .text(function(d) { return d.className.substring(0, d.r / 3); });
-            node.append("text")
-                .attr("class", "allsmaller")
-                .attr("dy", "15px")
-                .style("text-anchor", "middle")
-                .text(function(d) { return d.value+"%"; });
-          }else{
-            node.append("text")
-                .attr("dy", ".3em")
-                .style("text-anchor", "middle")
-                .text(function(d) { return d.className.substring(0, d.r / 3); });
-            node.append("text")
-                .attr("class", "percentage")
-                .attr("dy", "25px")
-                .style("text-anchor", "middle")
-                .text(function(d) { return d.value+"%"; });
-            };
-
-        });
-
-        // Returns a flattened hierarchy containing all leaf nodes under the root.
-        function classes(root) {
-          var classes = [];
-
-          function recurse(name, node) {
-            if (node.children) node.children.forEach(function(child) { recurse(node.name, child); });
-            else classes.push({packageName: name, className: node.name, value: node.size});
-          }
-
-          recurse(null, root);
-          return {children: classes};
-        }
-
-        d3.select(self.frameElement).style("height", diameter + "px");
-
-    }else{
-        var thisData = "/json/"+$(this).attr('class')+".json";
-
-        var colorArray = ["#194e43","#287d6b","#339c85","#39b99e", "#8af4dd", "#b9f0e4"]
-
-        var diameter = $(window).width()*0.6,
-            format = d3.format(",d"),
-            color =  d3.scale.ordinal()
-          .domain([1,100])
-          .range(colorArray);
-
-        var bubble = d3.layout.pack()
-            .sort(null)
-            .size([diameter, diameter])
-            .padding(1);
-
-        var svg = d3.select(".container").append("svg")
-            .attr("width", diameter)
-            .attr("height", diameter)
-            .attr("class", "bubble");
-
-        d3.json(thisData, function(error, root) {
-          if (error) throw error;
-
-          var node = svg.selectAll(".node")
-              .data(bubble.nodes(classes(root))
-              .filter(function(d) { return !d.children; }))
-              .enter().append("g")
-              .attr("class", "node")
-              .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-
-          node.append("title")
-              .text(function(d) { return d.className + ": " + format(d.value); });
-
-          node.append("circle")
-              .attr("r", function(d) { return d.r; })
-              .style("fill", function(d) { return color(d.packageName); });
-
-          if(thisData === "/json/all.json"){
-            node.append("text")
-                .attr('class', "alltext")
-                .attr("dy", ".3em")
-                .style("text-anchor", "middle")
-                .text(function(d) { return d.className.substring(0, d.r / 3); });
-            node.append("text")
-                .attr("class", "allsmaller")
-                .attr("dy", "15px")
-                .style("text-anchor", "middle")
-                .text(function(d) { return d.value+"%"; });
-          }else{
-            node.append("text")
-                .attr("dy", ".3em")
-                .style("text-anchor", "middle")
-                .text(function(d) { return d.className.substring(0, d.r / 3); });
-            node.append("text")
-                .attr("class", "percentage")
-                .attr("dy", "20px")
-                .style("text-anchor", "middle")
-                .text(function(d) { return d.value+"%"; });
-            };
-
-        });
-
-        // Returns a flattened hierarchy containing all leaf nodes under the root.
-        function classes(root) {
-          var classes = [];
-
-          function recurse(name, node) {
-            if (node.children) node.children.forEach(function(child) { recurse(node.name, child); });
-            else classes.push({packageName: name, className: node.name, value: node.size});
-          }
-
-          recurse(null, root);
-          return {children: classes};
-        }
-
-        d3.select(self.frameElement).style("height", diameter + "px");
-    }
+$(function() {
+  $('.signup').on('click', function(){
+    $('.signupdisplay').css("display", "inline");
+    $('.logindisplay').css("display", "none");
+    $('.signup').css("display", "none");
+    $('.login').css("display", "none");
   })
-})
-
+  $('.login').on('click', function(){
+    $('.logindisplay').css("display", "inline");
+    $('.signupdisplay').css("display", "none");
+    $('.login').css("display", "none");
+    $('.signup').css("display", "none");
+  })
+  $(".password").on('keyup', function(){
+        console.log('keyup');
+  })
+});
 </script>

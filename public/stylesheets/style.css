@@ -29,3 +29,32 @@ text{
   font-size: 10px;
   font-weight: lighter;
 }
+
+.signupdisplay, .logindisplay{
+  display: none;
+}
+
+
+input[type="text"]:focus {
+    border-bottom: 1px solid #333;
+    color: #6a6f75;
+    width: 120px;
+    margin:10px 5px;
+    outline: none;
+}
+
+input[type="text"] {
+   border: 0 none;
+   border-bottom: 1px solid #333;
+   color: #d7d7d7;
+   width:50px;
+   padding: 6px 10px 6px 35px;
+    margin:3px 5px;
+}
+
+input[type="text"] {
+    -webkit-transition: all 1s ease 0s;
+    -moz-transition: all 1s ease 0s;
+    -o-transition: all 1s ease 0s;
+    transition: all 1s ease 0s;
+}
