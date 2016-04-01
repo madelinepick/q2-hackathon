@@ -76,7 +76,7 @@ $(function(){
                 .text(function(d) { return d.className.substring(0, d.r / 3); });
             node.append("text")
                 .attr("class", "percentage")
-                .attr("dy", "20px")
+                .attr("dy", "25px")
                 .style("text-anchor", "middle")
                 .text(function(d) { return d.value+"%"; });
             };
