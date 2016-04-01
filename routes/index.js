@@ -68,7 +68,7 @@ if(errorArray.length > 0){
               res.redirect('/app');
             }).catch(function (err) { console.log(err);});
         } else {
-            res.redirect('/');
+          res.render('index', {errors: ["Someone with your name already exists"]});
         }
     });
 });
