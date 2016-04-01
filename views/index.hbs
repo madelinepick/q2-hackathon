@@ -1,11 +1,24 @@
 <h1>Language Visualizer</h1>
 <h2>Another look at stack overlow's survey</h2>
+{{#if errors}}
+<ul>
+  {{#each errors}}
+  <li>{{this}}</li>
+  {{/each}}
+</ul>
+{{/if}}
+
+{{#if error}}
+ <ul>
+   <li>{{error}}</li>
+ </ul>
+ {{/if}}
 <div class="middle">
   <button class="signup">Signup</button>
   <button class="login">Login</button>
 </div>
 
-  <div class="signupdisplay">
+  <div class="signupdisplay"{{#if display}} style="display:block;"{{/if}}>
     <form action="/signup" method="post">
       <label for="username">Username</label><br>
       <input class="formputs" type="text" name="username"><br>

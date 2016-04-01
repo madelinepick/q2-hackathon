@@ -37,6 +37,21 @@ router.post('/login', function(req, res, next) {
 });
 
 router.post('/signup', function(req, res, next) {
+var errorArray = [];
+
+if(!req.body.username){
+  errorArray.push("Please enter a name")
+}
+if(typeof(req.body.username) != "string"){
+  errorArray.push("Please enter a name with no numbers")
+}
+if(!req.body.password){
+  errorArray.push("Please enter a password")
+}
+if(errorArray.length > 0){
+    res.render('index', {errors: errorArray, diplay: "true", name:req.body.username, hobby:req.body.password});
+  }
+
   knex('users').where({
         username: req.body.username
     }).first().then(function(user) {
