@@ -3,9 +3,11 @@
 module.exports = {
 
   development: {
-    client: 'pg',
-    connection: {
-      filename: 'postgres://localhost/stack-overflow-db'
+    client: 'postgresql',
+    connection:  'postgres://localhost/stack-overflow-db',
+    pool: {
+      min: 2,
+      max: 10
     }
   }
 };

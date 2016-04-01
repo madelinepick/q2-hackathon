@@ -1,16 +1,32 @@
 <h1>Language Visualizer</h1>
-<div class="container">
+<div class="middle">
   <button class="signup">Signup</button>
   <button class="login">Login</button>
+</div>
+
   <div class="signupdisplay">
-    <form action="/sigunup" method="post">
+    <form action="/signup" method="post">
       <label for="username">Username</label><br>
       <input class="formputs" type="text" name="username"><br>
       <label for="password">Password</label><br>
       <input class="formputs password" type="text" name="password"><br>
+      <label for="role">Role</label><br>
+      <input type="radio" name="role" value="1">
+      <label class="smaller" for="role">Student</label><br>
+      <input type="radio" name="role" value="2">
+      <label class="smaller" for="role">Full Stack</label><br>
+      <input type="radio" name="role" value="3">
+      <label class="smaller" for="role">Front End</label><br>
+      <input type="radio" name="role" value="4">
+      <label class="smaller" for="role">Back End</label><br>
+      <input type="radio" name="role" value="5">
+      <label class="smaller" for="role">Mobile</label><br>
+      <input type="radio" name="role" value="6">
+      <label class="smaller" for="role">Math and Data</label><br>
       <input type="submit" value="Sign Up">
     </form>
   </div>
+
   <div class="logindisplay">
     <form action="/login" method="post">
       <label for="username">Username</label><br>
@@ -20,7 +36,6 @@
       <input type="submit" value="Login">
     </form>
   </div>
-</div>
 
 <script type="text/javascript">
 

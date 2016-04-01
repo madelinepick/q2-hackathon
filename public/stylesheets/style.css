@@ -49,7 +49,7 @@ input[type="text"] {
    color: #d7d7d7;
    width:50px;
    padding: 6px 10px 6px 35px;
-    margin:3px 5px;
+  margin:3px 5px 15px 5px;
 }
 
 input[type="text"] {
@@ -57,4 +57,36 @@ input[type="text"] {
     -moz-transition: all 1s ease 0s;
     -o-transition: all 1s ease 0s;
     transition: all 1s ease 0s;
+}
+
+.smaller{
+  font-size: 12px;
+}
+.middle{
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
+}
+button {
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 10px 0;
+  padding: 10;
+  height: 30px;
+  border-width: 0;
+  background-color: rgb(67, 133, 99)Red;
+  color: White;
+  font-family: Lato;
+  font-weight: light;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0px 2px;
+}
+form{
+  text-align: left;
+  margin-left: 45%;
 }
