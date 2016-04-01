@@ -51,7 +51,7 @@ router.post('/signup', function(req, res, next) {
               console.log(userID);
               req.session.userID = userID[0];
               res.redirect('/app');
-            });
+            }).catch(function (err) { console.log(err);});
         } else {
             res.redirect('/');
         }
