@@ -25,11 +25,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('trust proxy', 1)
-//
-// app.use(cookieSession({
-//   name: 'session',
-//   keys: [process.env.SECRET]
-// }))
 
 app.use(cookieSession({
   name: 'session',

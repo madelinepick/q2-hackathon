@@ -1,4 +1,5 @@
 <h1>Language Visualizer</h1>
+<h2>Another look at stack overlow's survey</h2>
 <div class="middle">
   <button class="signup">Signup</button>
   <button class="login">Login</button>
@@ -41,13 +42,13 @@
 
 $(function() {
   $('.signup').on('click', function(){
-    $('.signupdisplay').css("display", "inline");
+    $('.signupdisplay').show( 500 );
     $('.logindisplay').css("display", "none");
     $('.signup').css("display", "none");
     $('.login').css("display", "none");
   })
   $('.login').on('click', function(){
-    $('.logindisplay').css("display", "inline");
+    $('.logindisplay').show( 500 );
     $('.signupdisplay').css("display", "none");
     $('.login').css("display", "none");
     $('.signup').css("display", "none");

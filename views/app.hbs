@@ -1,7 +1,10 @@
-<h1>Programming Language Prevelance</h1>
+<h1 class='apptitle'>Progamming Bubbles</h1>
 <div class="middle">
-  <p>Hi, {{name}}!</p>
+  <p>Hi, {{name}}!</p><br>
   <a href="/logout">Logout</a>
+  <h3>
+    Remember that cool survey stack overflow did about programming? See the data in a new way!
+  </h3>
 </div>
 
 <div class='middle'>
@@ -19,7 +22,11 @@
 
 <script>
 $(function(){
-  $('button').on('click', function(){
+  $('button').on('click', function(event){
+    $('html, body').animate({
+      scrollTop: $(".container").offset().top
+  }, 1000);
+  event.preventDefault();
       $('.container').empty();
         var thisData = "/json/"+$(this).attr('class')+".json";
         function getRandomColor() {
@@ -32,7 +39,7 @@ $(function(){
           }
         var colorArray = [getRandomColor(),getRandomColor(),getRandomColor(),getRandomColor(),getRandomColor(),getRandomColor()];
 
-        var diameter = $(window).width()*0.6,
+        var diameter = $(window).width()*0.5,
             format = d3.format(",d"),
             color =  d3.scale.ordinal()
           .domain([1,100])
@@ -106,6 +113,7 @@ $(function(){
         d3.select(self.frameElement).style("height", diameter + "px");
 
   })
+
 })
 
 </script>

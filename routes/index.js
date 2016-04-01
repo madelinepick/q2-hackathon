@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/app', function(req, res, next) {
+  console.log('test /app', req.session.userID);
   knex('users').where({
     id: req.session.userID
   }).first().then(function(record){
@@ -20,8 +21,6 @@ router.get('/app', function(req, res, next) {
       res.redirect('/');
     }
   })
-
-
 });
 
 router.post('/login', function(req, res, next) {
@@ -42,13 +41,15 @@ router.post('/signup', function(req, res, next) {
         username: req.body.username
     }).first().then(function(user) {
         if (!user) {
+            req.session.userID = null;
             let hash = bcrypt.hashSync(req.body.password, 10);
             knex('users').insert({
                 username: req.body.username,
                 password: hash,
                 role_id: req.body.role
-            }).returning('id').first().then(function(userID){
-              req.session.userID = userID;
+            }).returning('id').then(function(userID){
+              console.log(userID);
+              req.session.userID = userID[0];
               res.redirect('/app');
             });
         } else {

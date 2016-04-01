@@ -1,14 +1,19 @@
 body {
   font-family: Lato;
+  background-color: rgb(40, 227, 137);
 }
 h1{
-  font-weight: 300;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 100px;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 a {
-  color: #00B7FF;
+  color: #ffffff;
   display: inline;
+  font-weight: 300;
   text-decoration: none;
 }
 text{
@@ -16,8 +21,8 @@ text{
   font-weight: normal;
 }
 .container{
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 .percentage{
   font-size: 20px;
@@ -34,6 +39,10 @@ text{
 
 .signupdisplay, .logindisplay{
   display: none;
+  background-color: white;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -46,11 +55,12 @@ input[type="text"]:focus {
 }
 
 input[type="text"] {
+  background-color: white;
    border: 0 none;
    border-bottom: 1px solid #333;
    color: #d7d7d7;
    width:50px;
-   padding: 6px 10px 6px 35px;
+   padding: 6px 10px 6px 10px;
   margin:3px 5px 15px 5px;
 }
 
@@ -71,7 +81,7 @@ input[type="text"] {
   margin-right: 15%;
   text-align: center;
 }
-button {
+button, input[type="submit"] {
   display: inline-block;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -80,8 +90,8 @@ button {
   padding: 10;
   height: 30px;
   border-width: 0;
-  background-color: rgb(67, 133, 99)Red;
-  color: White;
+  background-color: white;
+  color: #333;
   font-family: Lato;
   font-weight: light;
   font-size: 12px;
@@ -89,10 +99,25 @@ button {
   text-decoration: none;
   margin: 0px 2px;
 }
+
+input[type="submit"]{
+  border: 1px solid #333;
+  margin-top: 15px;
+}
+
 form{
   text-align: left;
-  margin-left: 45%;
+  padding: 20px;
 }
 p{
   display: inline;
+  font-size: 30px;
+}
+.apptitle{
+  font-size: 100px;
+}
+h2{
+  font-weight: 300;
+  font-size: 20px;
+  text-align: center;
 }
