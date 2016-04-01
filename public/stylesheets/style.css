@@ -1,8 +1,31 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: Lato;
+}
+h1{
+  font-weight: 300;
+  text-align: center;
 }
 
 a {
   color: #00B7FF;
+}
+text{
+  font-size: 15px;
+  font-weight: normal;
+}
+.container{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.percentage{
+  font-size: 12px;
+  font-weight: lighter;
+}
+.alltext{
+  font-size: 11px;
+  font-weight: normal;
+}
+.allsmaller{
+  font-size: 10px;
+  font-weight: lighter;
 }
