@@ -1,7 +1,7 @@
 'use strict'
 var express = require('express');
 var router = express.Router();
-var knex = require('knex')(require('../knexfile')['development']);
+var knex = require('knex')(require('../knexfile')[process.env.DB_ENV]);
 var bcrypt = require('bcrypt');
 
 
