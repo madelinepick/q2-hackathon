@@ -1,5 +1,5 @@
 body {
-  font-family: Lato;
+  font-family: "Lato", sans-serif;;
   background-color: rgb(40, 227, 137);
 }
 h1{
@@ -87,12 +87,11 @@ button, input[type="submit"] {
   -moz-appearance: none;
   appearance: none;
   margin: 10px 0;
-  padding: 10;
-  height: 30px;
+  padding: 12px;
   border-width: 0;
   background-color: white;
   color: #333;
-  font-family: Lato;
+  font-family: "Lato";
   font-weight: light;
   font-size: 12px;
   text-transform: uppercase;
@@ -128,4 +127,18 @@ li{
 }
 ul{
   padding-left: 0px;
+}
+.whitebox{
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+.whitebox > h3 {
+  color: #333;
+  font-weight: 300;
+
+}
+.whitebox > h3 > a {
+  color: rgb(40, 227, 137);
+  font-weight: 500;
 }
