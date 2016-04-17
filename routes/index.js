@@ -11,7 +11,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/app', function(req, res, next) {
-  console.log('test /app', req.session.userID);
   knex('users').where({
     id: req.session.userID
   }).first().then(function(record){
